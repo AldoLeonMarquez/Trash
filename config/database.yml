@@ -81,8 +81,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  production:
   <<: *default
-  database: simple_cms_production
-  username: rails_user
-  password: <%= ENV['SIMPLE_CMS_DATABASE_PASSWORD'] %>
-
+  database: test1
+  username: postgresAdmin
+  password: postgresAdmin123
+  host: database-1.co7kn39rm09m.us-east-2.rds.amazonaws.com
+  post: 5432
