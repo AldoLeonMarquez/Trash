@@ -1,0 +1,37 @@
+<h1 style:"center">DataTables</h1 >
+
+<table class="table table-bordered table-hover" id="budgetTable" style:"min-width: 20x">
+    <thead>
+      <tr>
+        <th>Temperature</th>
+        <th>Humidity</th>
+        <th>Preassure</th>
+        <th>pH</th>
+        <th>tds</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @measurements.each do |measurement| %>
+      <tr>
+        <td><%= measurement.temperature %></td>
+        <td><%= measurement.humidity %></td>
+        <td><%= measurement.preassure %></td>
+        <td><%= measurement.ph %></td>
+        <td><%= measurement.tds %></td>
+
+        <td class="actions">
+          <%= link_to("www.google.com") do%>
+          <button type="button" class="btn btn-primary">Update</button>
+          <% end%>
+
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#budgetTable').DataTable();
+  });
+</script>

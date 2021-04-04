@@ -1,4 +1,4 @@
-    # PostgreSQL. Versions 9.3 and up are supported.
+# PostgreSQL. Versions 9.3 and up are supported.
 #
 # Install the pg driver:
 #   gem install pg
@@ -17,21 +17,28 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: rails_user
+  username: aldo
   password: 1234
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
+  development:
   <<: *default
-  database: simple_cms_development
-
+  adapter: postgresql
+  encoding: unicode
+  database: ebdb
+  username: ebroot
+  password: Ecen4032020
+  host: aa1ri14ytcgpqp6.c0zaocc0wkci.ca-central-1.rds.amazonaws.com
+  port: 5432
+  timeout: 5000
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: simple_cms
+  #username: analysis
 
   # The password associated with the postgres role (username).
   #password:
@@ -59,7 +66,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: simple_cms_test
+  database: weather_monitor
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,10 +88,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  production:
   <<: *default
-  database: test1
-  username: postgresAdmin
-  password: postgresAdmin123
-  host: database-1.co7kn39rm09m.us-east-2.rds.amazonaws.com
-  post: 5432
+  database: weather_monitor_production
+  username: analysis
+  password: <%= ENV['ANALYSIS_DATABASE_PASSWORD'] %>
