@@ -17,8 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: aldo
-  password: 1234
+
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -26,14 +25,7 @@ default: &default
 development:
   development:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: ebdb
-  username: ebroot
-  password: Ecen4032020
-  host: aa1ri14ytcgpqp6.c0zaocc0wkci.ca-central-1.rds.amazonaws.com
-  port: 5432
-  timeout: 5000
+  
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -89,11 +81,4 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: ebdb
-  username: ebroot
-  password: Ecen4032020
-  host: aa1ri14ytcgpqp6.c0zaocc0wkci.ca-central-1.rds.amazonaws.com
-  port: 5432
-  timeout: 5000
+ 
